@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="position: absolute; left: 20px; top: 10px; color: gold;"> 금색창 </h1>
+
+<form action = "{% url 'result' %}" method ='GET'>
+    <input type="text" name="query" value="{{query}}" style="position: absolute;
+    top: 30px; left: 300px; height: 40px; width: 900px;" placeholder ="검색어를 입력하세요 ~_~">
+</form>
+
+<select style="position: absolute; right: 400px; top: 20px; height: 40px; width: 140px;">
+    <option value="1"> 전체검색 </option>
+    <option value="2"> 제목으로 검색 </option>
+    <option value="3"> 내용으로 검색 </option>
+    <option value="4"> 글쓴이로 검색 </option>
+</select>
+
+{% for i in blog_list %}
+    <h1 style="position: absolute; right: 20px; top: 10px;"> {{i.author}}님 안녕하세요! </h1>
+    
+    <div style="position: relative; top: 120px; height: 100px; left: 400px;">
+        <p> --------------------------------------------------------</p>
+        <a href="{% url 'detail' i.id %}">
+        <h1>글 제목 : {{i.title}}</h1>
+        <p> 글쓴이 : {{i.author}}</p></a>
+        <p> --------------------------------------------------------</p><br>
+        <br> 
+    </div>
+{% endfor %}
+    <div style="position: absolute; right: 20px; bottom: 10px;">
+    <a href="{% url 'create'  %}">새 글 추가</a>
+    </div>
+    
+
+
+
+</body>
+</html>

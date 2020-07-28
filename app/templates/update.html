@@ -1,0 +1,7 @@
+<form method = 'POST'>
+    {% csrf_token %}
+    {{form.as_p}}  
+    <!-- form 인데 받는 정보를 p태그로 모델 블러오고 필드 선택한 거를 이 줄을 거쳐서 다 p태그로 묶어달라 -->
+    <!-- ul 이면 앞에 똥그라미 붙는 걸로 묶임 -->
+    <input type='submit' value = '수정'>
+</form>

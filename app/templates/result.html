@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>"{{query}}"에 대한 결과는 다음과 같습니다 ~~~~~~~~!</p>
+
+    <br>
+
+    
+
+    {% if not BlogPosts %}
+        <p> {{query}}에 대한 검색결과가 없습니다.</p>
+    
+    {% else %}
+        
+        {% for post in BlogPosts %}
+            <p> ----------------------------------------- </p>
+            <p> 제목 : {{post.title}}</p>
+            <p> 내용: {{post.text}}</p>
+            <p> 글쓴이: {{post.author}}</p>
+            <p> ----------------------------------------- </p>
+
+
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
